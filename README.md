@@ -140,5 +140,7 @@ This repository is a portfolio-safe reference architecture. It does not contain 
 - Structured evaluator rubrics
 - Statistical comparison helpers
 - Reporting notebook
-- CI validation
-- Unit tests
+
+## Validation
+
+This reference implementation is checked in GitHub Actions. CI runs the TypeScript test suite and strict type-checking on pushes and pull requests to `main`.
