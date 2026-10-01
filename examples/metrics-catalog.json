@@ -1,0 +1,11 @@
+{
+  "metrics": [
+    {"name":"experiment_runs_scheduled_total","type":"counter","description":"Total experiment runs scheduled."},
+    {"name":"experiment_runs_completed_total","type":"counter","description":"Total experiment runs completed."},
+    {"name":"experiment_run_latency_ms","type":"histogram","description":"Provider request latency by provider and model."},
+    {"name":"experiment_run_failures_total","type":"counter","description":"Failed experiment runs by provider, model, and error class."},
+    {"name":"evaluator_failures_total","type":"counter","description":"Evaluator execution failures."},
+    {"name":"evaluator_agreement_ratio","type":"gauge","description":"Agreement ratio across configured evaluators."},
+    {"name":"experiment_run_age_seconds","type":"gauge","description":"Age of oldest incomplete scheduled run."}
+  ]
+}
