@@ -1,0 +1,13 @@
+{
+  "seedId": "example-001",
+  "category": "reasoning-consistency",
+  "prompt": "Explain the tradeoffs between centralized and distributed system design for a medium-sized organization.",
+  "sampling": {
+    "withinDayMinutes": [0, 5, 15, 30],
+    "longitudinalDayOffsets": [1, 7, 30]
+  },
+  "generation": {
+    "temperature": 0.2,
+    "maxOutputTokens": 1200
+  }
+}
