@@ -1,4 +1,5 @@
 import { ModelProvider, GenerationRequest } from "../providers/provider-interface";
+import { buildRunProvenance, RunProvenance } from "../governance/provenance";
 
 export interface ExperimentTask {
   request: GenerationRequest;
@@ -10,6 +11,7 @@ export interface ExperimentObservation {
   repeatIndex: number;
   status: "succeeded" | "failed";
   result?: Awaited<ReturnType<ModelProvider["generate"]>>;
+  provenance?: RunProvenance;
   error?: string;
 }
 
@@ -25,6 +27,7 @@ export async function runExperiment(
       repeatIndex: task.repeatIndex,
       status: "succeeded",
       result,
+      provenance: buildRunProvenance(task.request, result),
     };
   } catch (error) {
     return {
