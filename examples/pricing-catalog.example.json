@@ -1,0 +1,23 @@
+{
+  "note": "Illustrative pricing data for testing only. Replace with provider-published pricing and preserve effective dates before using for real cost reporting.",
+  "pricing": [
+    {
+      "provider": "example-provider",
+      "model": "example-model-small",
+      "currency": "USD",
+      "inputUsdPerMillionTokens": 1,
+      "outputUsdPerMillionTokens": 4,
+      "effectiveFrom": "2026-10-01",
+      "sourceNote": "Illustrative portfolio value, not provider pricing."
+    },
+    {
+      "provider": "example-provider",
+      "model": "example-model-large",
+      "currency": "USD",
+      "inputUsdPerMillionTokens": 5,
+      "outputUsdPerMillionTokens": 15,
+      "effectiveFrom": "2026-10-01",
+      "sourceNote": "Illustrative portfolio value, not provider pricing."
+    }
+  ]
+}
