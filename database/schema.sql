@@ -20,6 +20,10 @@ create table if not exists experiment_runs (
     completed_at timestamptz,
     status text not null check (status in ('pending','running','succeeded','failed')),
     request_config jsonb not null default '{}'::jsonb,
+    prompt_version text,
+    schema_version text,
+    request_fingerprint text,
+    source_refs jsonb not null default '[]'::jsonb,
     error_code text,
     error_message text,
     created_at timestamptz not null default now()
@@ -34,6 +38,8 @@ create table if not exists model_outputs (
     output_tokens integer,
     provider_request_id text,
     provider_metadata jsonb not null default '{}'::jsonb,
+    output_hash text,
+    estimated_cost_usd numeric(14,8),
     created_at timestamptz not null default now()
 );
 
@@ -53,3 +59,5 @@ create index if not exists idx_runs_seed_id on experiment_runs(seed_id);
 create index if not exists idx_runs_provider_model on experiment_runs(provider, model);
 create index if not exists idx_runs_started_at on experiment_runs(started_at);
 create index if not exists idx_evaluations_run_id on evaluations(run_id);
+
+create index if not exists idx_runs_request_fingerprint on experiment_runs(request_fingerprint);
