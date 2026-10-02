@@ -4,6 +4,10 @@ export interface GenerationRequest {
   model: string;
   temperature?: number;
   maxOutputTokens?: number;
+  promptVersion?: string;
+  schemaVersion?: string;
+  responseFormat?: "text" | "json_object";
+  sourceRefs?: string[];
 }
 
 export interface GenerationResult {
