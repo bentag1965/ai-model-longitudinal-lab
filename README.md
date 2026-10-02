@@ -2,6 +2,18 @@
 
 A public reference implementation for running controlled prompts across multiple AI providers, normalizing responses, storing results, and comparing behavior over time.
 
+## Executive Lens
+
+The useful question is not whether an AI model can produce a strong answer once. It is whether behavior can be measured, compared, reproduced, governed, and explained over time. This reference architecture treats AI evaluation as an operational system rather than a collection of ad hoc prompts.
+
+**Leadership questions this design addresses:**
+
+- How do we compare providers without binding the experiment to one vendor?
+- How do we separate generation from evaluation to reduce methodological contamination?
+- What provenance must be preserved to reproduce a result months later?
+- How do we detect drift, variability, cost changes, or schema failures over time?
+- How do we make AI experiments auditable enough to support business decisions?
+
 This repository demonstrates the architecture and engineering patterns behind a longitudinal AI evaluation system. It is intentionally separated from any production, commercial, proprietary, or customer-specific implementation.
 
 ## What This Project Demonstrates
@@ -135,6 +147,17 @@ API keys belong in environment variables or a secret manager.
 ## Production vs. Public Reference
 
 This repository is a portfolio-safe reference architecture. It does not contain production credentials, proprietary datasets, commercial publishing logic, private evaluation results, or internal workflow configuration.
+
+## Tradeoffs and Decisions
+
+- **Provider abstraction:** improves comparability and portability, while hiding some provider-specific capabilities unless they are modeled explicitly.
+- **Immutable run records:** protects historical evidence, at the cost of greater storage and version-management requirements.
+- **Separate evaluators:** improves analytical discipline but adds cost and operational complexity.
+- **Versioned pricing and schemas:** makes historical comparisons more defensible, but requires careful catalog maintenance.
+
+## What I Would Improve Next
+
+I would add production-grade provider adapters, queue-based experiment execution, structured evaluator rubrics, statistical comparison helpers, richer reporting, and more explicit controls for model/version retirement. From a governance standpoint, I would also connect experiment evidence to approval criteria for when an AI capability is ready for operational use.
 
 ## Planned Enhancements
 
