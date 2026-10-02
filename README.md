@@ -13,6 +13,10 @@ This repository demonstrates the architecture and engineering patterns behind a 
 - Normalized storage across heterogeneous providers
 - Evaluator separation from generation models
 - Reproducibility and auditability
+- Request/output fingerprinting
+- Prompt and schema versioning
+- Structured-output validation
+- Token and estimated-cost accounting
 - Failure isolation and retry-safe design
 - Environment-based secret management
 
@@ -138,6 +142,7 @@ This repository is a portfolio-safe reference architecture. It does not contain 
 - Retry/backoff policy
 - Queue-based execution
 - Structured evaluator rubrics
+- Provider-specific schema adapters
 - Statistical comparison helpers
 - Reporting notebook
 
@@ -157,3 +162,20 @@ This reference implementation is checked in GitHub Actions. CI runs the TypeScri
 - [Incident runbook](docs/runbook.md)
 - [Example incident scenario](docs/incident-scenario.md)
 - [Metrics catalog](examples/metrics-catalog.json)
+
+
+## AI Governance Controls
+
+The reference implementation includes controls for experiment provenance and AI operational accountability:
+
+- deterministic request fingerprints
+- output hashes
+- prompt and schema versions
+- source-reference metadata
+- structured JSON contract validation
+- input/output token accounting
+- versioned cost estimation
+
+See [AI provenance, versioning, validation, and cost controls](docs/ai-governance-controls.md).
+
+An [illustrative pricing catalog](examples/pricing-catalog.example.json) demonstrates how pricing should be versioned by effective date. It intentionally does not claim to contain current provider pricing.
